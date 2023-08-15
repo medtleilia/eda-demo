@@ -1,0 +1,24 @@
+---
+- name: Ansible Playbook
+  hosts: localhost
+  tasks:
+    - name: DRPlacementControl
+      kubernetes.core.k8s:
+        definition:
+          apiVersion: ramendr.openshift.io/v1alpha1
+          kind: DRPlacementControl
+          metadata:
+            labels:
+              app: "{{ application_name }}"
+            name: "{{ application_name }}-drpc"
+          spec:
+            action: failover
+            drPolicyRef:
+              name: odr-policy
+            placementRef:
+              kind: PlacementRule
+              name: busybox-placement
+            preferredCluster: "{{ cluster1 }}"
+            pvcSelector:
+              matchLabels:
+                appname: busybox
