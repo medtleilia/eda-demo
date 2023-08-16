@@ -1,0 +1,18 @@
+---
+- name: Ansible Playbook
+  hosts: localhost
+  collections:
+    - kubernetes.core
+  tasks:
+
+# Download and apply manifest
+    - name: Download failover yml to the cluster.
+      ansible.builtin.get_url:
+        url: https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+        dest: ~/failover.yml
+        mode: '0664'
+
+    - name: Apply failover manifest to the cluster.
+      kubernetes.core.k8s:
+        state: present
+        src: ~/failover.yml
