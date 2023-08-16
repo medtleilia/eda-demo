@@ -6,6 +6,9 @@
   vars:
     application_name: busybox
   tasks:
+
+    - kubernetes.core.k8s_cluster_info:
+        invalidate_cache: true
     - name: DRPlacementControl
       kubernetes.core.k8s:
         definition:
