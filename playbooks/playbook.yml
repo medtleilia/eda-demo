@@ -19,7 +19,7 @@
               name: odr-policy
             placementRef:
               kind: PlacementRule
-              name: "{{ application_name }}"-placement
+              name: "{{ application_name }}-placement"
             preferredCluster: primary
             pvcSelector:
               matchLabels:
