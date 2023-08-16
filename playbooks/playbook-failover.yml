@@ -4,13 +4,13 @@
   collections:
     - kubernetes.core
   tasks:
-    - name: Download failover yml to the cluster.
-      ansible.builtin.get_url:
-        url: https://github.com/rlopez133/eda-demo/blob/main/failover.yml
-        dest: ~/failover.yml
-        mode: '0664'
+#    - name: Download failover yml to the cluster.
+#      ansible.builtin.get_url:
+#        url: https://github.com/rlopez133/eda-demo/blob/main/failover.yml
+#        dest: ~/failover.yml
+#        mode: '0664'
 
     - name: Apply failover manifest to the cluster.
       kubernetes.core.k8s:
         state: present
-        src: ~/failover.yml
+        src: ./failover.yml
