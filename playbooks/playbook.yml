@@ -3,6 +3,8 @@
   hosts: localhost
   collections:
     - kubernetes.core
+  vars:
+    application_name: busybox
   tasks:
     - name: DRPlacementControl
       kubernetes.core.k8s:
@@ -18,10 +20,10 @@
             action: Failover
             failoverCluster: secondary
             drPolicyRef:
-              name: odr-policy
+              name: drsync5m
             placementRef:
               kind: PlacementRule
-              name: "{{ application_name }}-placement"
+              name: "{{ application_name }}-placement-1"
             preferredCluster: primary
             pvcSelector:
               matchLabels:
