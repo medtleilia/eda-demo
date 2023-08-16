@@ -1,6 +1,8 @@
 ---
 - name: Ansible Playbook
   hosts: localhost
+  collections:
+    - kubernetes.core
   tasks:
     - name: DRPlacementControl
       kubernetes.core.k8s:

@@ -1,0 +1,14 @@
+---
+- name: Get dynamic inventory
+  hosts: localhost
+  become: false
+  gather_facts: true
+  collections:
+    - kubernetes.core
+    
+  tasks:
+  - name: Get nodes
+    kubernetes.core.k8s_info:
+      api_version: v1
+      kind: Node
+    register: nodes
