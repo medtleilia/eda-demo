@@ -1,0 +1,19 @@
+apiVersion: ramendr.openshift.io/v1alpha1
+kind: DRPlacementControl
+metadata:
+  labels:
+    app: busybox
+  name: busybox-placement-1-drpc
+  namespace: busybox-example
+spec:
+  action: Failover
+  failoverCluster: secondary
+  drPolicyRef:
+    name: drsync5m
+  placementRef:
+    kind: PlacementRule
+    name: busybox-placement-1
+  preferredCluster: primary
+  pvcSelector:
+    matchLabels:
+      appname: busybox
