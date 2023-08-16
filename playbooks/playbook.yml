@@ -10,15 +10,17 @@
           metadata:
             labels:
               app: "{{ application_name }}"
-            name: "{{ application_name }}-drpc"
+            name: "{{ application_name }}-placement-1-drpc"
+            namespace: "{{application_name}}-example"
           spec:
-            action: failover
+            action: Failover
+            failoverCluster: secondary
             drPolicyRef:
               name: odr-policy
             placementRef:
               kind: PlacementRule
-              name: busybox-placement
-            preferredCluster: "{{ cluster1 }}"
+              name: "{{ application_name }}"-placement
+            preferredCluster: primary
             pvcSelector:
               matchLabels:
-                appname: busybox
+                appname: "{{ application_name }}"
