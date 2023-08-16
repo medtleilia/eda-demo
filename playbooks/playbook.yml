@@ -6,18 +6,6 @@
   vars:
     application_name: busybox
   tasks:
-
-    - kubernetes.core.k8s_cluster_info:
-        invalidate_cache: true
-
-    - name: Get Cluster info
-      kubernetes.core.k8s_cluster_info:
-      register: my_status
-
-    - name: Debug
-      ansible.builtin.debug:
-        var: my_status
-
     - name: DRPlacementControl
       kubernetes.core.k8s:
         definition:
