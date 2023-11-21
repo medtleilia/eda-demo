@@ -22,7 +22,7 @@
             drPolicyRef:
               name: drsync5m
             placementRef:
-              kind: Placements
+              kind: Placement
               name: "{{ application_name }}-placement-1"
             preferredCluster: primary
             pvcSelector:
