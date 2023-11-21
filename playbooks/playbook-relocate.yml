@@ -4,7 +4,7 @@
   collections:
     - kubernetes.core
   vars:
-    application_name: busybox
+    application_name: book-import
   tasks:
     - name: DRPlacementControl
       kubernetes.core.k8s:
