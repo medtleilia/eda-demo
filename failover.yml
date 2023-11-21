@@ -2,9 +2,9 @@ apiVersion: ramendr.openshift.io/v1alpha1
 kind: DRPlacementControl
 metadata:
   labels:
-    app: busybox
-  name: busybox-placement-1-drpc
-  namespace: busybox-example
+    app: book-import
+  name: book-import-placement-1-drpc
+  namespace: book-import-example
 spec:
   action: Failover
   failoverCluster: secondary
@@ -12,7 +12,7 @@ spec:
     name: drsync5m
   placementRef:
     kind: PlacementRule
-    name: busybox-placement-1
+    name: book-import-placement-1
   preferredCluster: primary
   pvcSelector:
     matchLabels:
