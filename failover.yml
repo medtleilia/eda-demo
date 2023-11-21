@@ -11,7 +11,7 @@ spec:
   drPolicyRef:
     name: drsync5m
   placementRef:
-    kind: PlacementRule
+    kind: Placements
     name: book-import-placement-1
   preferredCluster: primary
   pvcSelector:
