@@ -1,5 +1,5 @@
 ---
-- name: Capture Busybox CPUThreshold Alert
+- name: Capture Book-import CPUThreshold Alert
   hosts: localhost
   sources:
     - ansible.eda.alertmanager:
@@ -12,7 +12,7 @@
 
   rules:
     - name: Busybox hits CPU threshold
-      condition: event.alert.labels.alertname == "BusyboxCPUThresholdReached" and event.alert.status == "firing"
+      condition: event.alert.labels.alertname == "book-importCPUThresholdReached" and event.alert.status == "firing"
       action:
         run_job_template:
           name: Failover
