@@ -16,4 +16,4 @@ spec:
   preferredCluster: primary
   pvcSelector:
     matchLabels:
-      appname: busybox
+      appname: book-import
